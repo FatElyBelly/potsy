@@ -1,0 +1,1374 @@
+* {
+    font-family: Nunito;
+}
+
+:root {
+    font-size: 16px;
+    --transitionSpeed: 0.2s;
+    --background-color: #001220;
+    --dark-background-color: #000e1a;
+    --pink: #C62368;
+    --dark-purple: #172447;
+    --bright-purple: #5856d6;
+}
+
+
+/* Loading Screen */
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overscroll-behavior-y: none;
+    scroll-behavior: smooth;
+    zoom: 80%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-color);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.autoScrollDiv {
+    height: 65px;
+    width: 100%;
+    clear: both;
+}
+
+.messages {
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+.messageDivWrapper {
+    clear: right;
+    justify-content: center;
+}
+
+.messageDiv,
+.myMessageDiv {
+    position: relative;
+    margin-top: 7px;
+    display: inline-block;
+    border-radius: 20px;
+    max-width: 85%;
+    transition-duration: .2s;
+}
+
+.messageDiv:hover,
+.myMessageDiv:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.messageDiv img,
+.myMessageDiv img {
+    border-radius: 50%;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.messageDiv img {
+    left: 10px;
+}
+
+.myMessageDiv img {
+    right: 10px;
+}
+
+.messageDiv {
+    background-color: var(--bright-purple);
+    margin-left: 15px;
+}
+
+.myMessageDiv {
+    float: right;
+    background-color: var(--pink);
+    margin-right: 15px;
+}
+
+.messageText {
+    padding: 0 15px;
+    font-size: 15px;
+    color: #ffff;
+}
+
+.messageDiv .messageText {
+    margin-left: 45px;
+}
+
+.myMessageDiv .messageText {
+    margin-right: 45px;
+}
+
+#mainTitle {
+    color: #ffff;
+    font-size: 35px;
+    overflow: hidden;
+    letter-spacing: .07em;
+}
+
+.messageInputDiv {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.messageInputForm {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.messageInput {
+    outline: none;
+    position: relative;
+    display: inline-block;
+    padding-left: 15px;
+    color: #ffff;
+    font-size: 18px;
+    width: 80%;
+    margin-left: 7%;
+    bottom: 0;
+    transition-duration: 0.5s;
+    height: 40px;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    background-color: var(--dark-background-color);
+}
+
+.messageInput::placeholder {
+    color: #ffff;
+}
+
+#sendMessageIcon {
+    float: right;
+    position: fixed;
+    color: #ffff;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+#modMessage {
+    background-color: #298D69;
+}
+
+.messageInfo {
+    float: none;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.messageInfo:hover {
+    opacity: 1;
+    cursor: auto;
+}
+
+
+/* Header */
+
+.headerDiv {
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0px;
+    padding: 10px;
+}
+
+
+/* Header copyright thing */
+
+.copyrightDiv {
+    background-color: var(--dark-purple);
+    float: right;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.copyrightDiv p a {
+    text-decoration: none;
+    color: #ffff;
+    transition-duration: 0.2s;
+}
+
+.copyrightDiv p a:hover {
+    color: var(--pink);
+}
+
+.copyrightDiv p {
+    font-size: 20px;
+    color: #ffff;
+    display: inline;
+}
+
+.rightSideNav {
+    position: fixed;
+    background-color: var(--dark-background-color);
+    width: 0px;
+    height: 100%;
+    transition: 0.5s;
+    z-index: 1;
+    overflow-x: hidden;
+    right: 0;
+    border-left: 2px solid #ffff;
+}
+
+.rightSideNavCloseButton {
+    margin-left: 2px;
+    background: none;
+    border: none;
+}
+
+.closeIcon {
+    transition: .2s
+}
+
+.closeIcon:hover {
+    color: var(--pink);
+    cursor: pointer;
+}
+
+
+/* Sidenav */
+
+.sideNav {
+    position: fixed;
+    background-color: var(--dark-background-color);
+    width: 55px;
+    height: 100%;
+    transition: 0.5s;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+i {
+    color: #ffff;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    transition: 0.2s;
+}
+
+#hiddenSectionDiv {
+    display: none;
+    transition: 0.2s;
+}
+
+.sideNavButtons {
+    border-right: 2px solid #ffff;
+    width: 50px;
+    height: 100%;
+    float: right;
+}
+
+.sideNavButtons button {
+    background: none;
+    border: none;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.sideNavButtons button i:hover {
+    cursor: pointer;
+    color: var(--pink);
+}
+
+.userPfpDiv {
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+}
+
+.userPfpImage {
+    transition: 0.2s;
+    width: 37px;
+    border: 3px solid #ffff;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+}
+
+.userPfpImage:hover {
+    border-color: var(--pink);
+    cursor: pointer;
+}
+
+#main {
+    transition: margin .5s;
+    padding: 20px;
+}
+
+.fa-spin-hover:hover {
+    animation: fa-spin 2s infinite linear;
+}
+
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+
+/* Scroll down button */
+
+.scrollDownDiv {
+    margin-top: 3px;
+    margin-bottom: 5px;
+    margin-left: 6px;
+    width: 37px;
+    height: auto;
+    margin-top: 20px;
+    transition-duration: 0.5s;
+    position: absolute;
+    bottom: 50%;
+}
+
+.scrolldown {
+    --color: #ffff;
+    --sizeX: 30px;
+    --sizeY: 50px;
+    position: relative;
+    width: var(--sizeX);
+    height: var(--sizeY);
+    margin-left: var(sizeX / 2);
+    border: calc(var(--sizeX) / 10) solid var(--color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.scrolldown:hover {
+    --color: var(--pink);
+    cursor: pointer;
+}
+
+.scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--color);
+    border-radius: 100%;
+    animation: scrolldown-anim 2s infinite;
+    box-sizing: border-box;
+    box-shadow: 0px -5px 3px 1px #ffffff66;
+}
+
+@keyframes scrolldown-anim {
+    0% {
+        opacity: 0;
+        height: 6px;
+    }
+
+    40% {
+        opacity: 1;
+        height: 10px;
+    }
+
+    80% {
+        transform: translate(0, 20px);
+        height: 10px;
+        opacity: 0;
+    }
+
+    100% {
+        height: 3px;
+        opacity: 0;
+    }
+}
+
+.chevrons {
+    padding: 6px 0 0 0;
+    margin-left: -3px;
+    margin-top: 48px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chevrondown {
+    margin-top: -6px;
+    position: relative;
+    border: solid var(--color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+    animation: pulse 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+    animation: pulse 500ms ease infinite alternate 250ms;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+
+/* Sign In */
+
+
+/* Custom Scrollbar */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: var(--dark-background-color);
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #ffff;
+    border-radius: 5px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--pink);
+}
+
+
+/* Sidenav Menu */
+
+.menuDiv {
+    position: absolute;
+    display: none;
+    width: 170px;
+    margin-left: 15px;
+    height: auto;
+    padding: 10px 15px;
+    top: 10px;
+    border-radius: 15px;
+}
+
+.menuDiv p {
+    position: absolute;
+    left: 42px;
+    font-size: 25px;
+    text-align: center;
+    color: #ffff;
+}
+
+.searchDiv {
+    margin-top: 25px;
+    background-color: var(--dark-purple);
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+.searchGroupDiv {
+    padding-top: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.collectionList {
+    padding-bottom: 5px;
+}
+
+.searchGroupForm {
+    width: 100%;
+    height: 100%;
+}
+
+.searchGroupInput {
+    outline: none;
+    padding-left: 15px;
+    color: #ffff;
+    font-size: 18px;
+    width: 100%;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    min-height: 40px;
+    line-height: 20px;
+    border: none;
+    border-radius: 25px;
+    background: none;
+}
+
+.searchGroupInput::placeholder {
+    color: #ffff;
+}
+
+
+/* Settings */
+
+.settingsDiv {
+    position: absolute;
+    display: none;
+    background-color: var(--dark-purple);
+    width: 170px;
+    margin-left: 15px;
+    height: 110px;
+    padding: 10px 15px;
+    top: 10px;
+    border-radius: 15px;
+}
+
+.settingsDiv button {
+    background: none;
+    color: #ffff;
+    border: none;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    padding: 10px 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.settingsDiv button:hover {
+    background: #1f1f1f;
+    cursor: pointer;
+}
+
+#moreButtonsSettingsIcon {
+    transform: scale(1.5, 1);
+}
+
+#moreButtonsSettings {
+    width: auto;
+    height: auto;
+    padding: 0;
+    border-radius: 50%;
+}
+
+#moreButtonsSettings:hover {
+    background: none;
+}
+
+#moreButtonsSettings:hover i {
+    color: var(--pink);
+}
+
+.moreButtonsDiv {
+    display: none;
+}
+
+
+/* User settings */
+
+.userSettingsDiv {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    color: #ffff;
+}
+
+.userSettingsDiv button {
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    padding: 10px 10px;
+    margin: 5px 2px;
+    width: 90%;
+    background-color: var(--background-color);
+    transition-duration: .5s;
+}
+
+.userSettingsDiv button:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.userSettingsDiv span {
+    font-size: 25px;
+}
+
+.userSettingsDiv img {
+    margin-top: 10px;
+    width: max;
+    height: auto;
+    border-radius: 15px;
+}
+
+#menuPfp {
+    margin: 10px 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.groupChatSelectButton {
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    padding: 6px 10px;
+    margin: 5px 2px 0;
+    background-color: var(--background-color);
+    transition-duration: .5s;
+}
+
+.groupChatSelectButton:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.MyGroupsDiv {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    color: #ffff;
+}
+
+.MyGroupsDiv span {
+    font-size: 25px;
+}
+
+.myGroupChatSelectButton {
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    padding: 10px 10px;
+    margin: 5px 2px 0;
+    width: 80%;
+    background-color: var(--background-color);
+    transition-duration: .5s;
+}
+
+.myGroupChatSelectButton:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.createNewGroupButton {
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    padding: 10px 10px;
+    margin: 10px 2px;
+    width: 90%;
+    background-color: var(--background-color);
+    transition-duration: .5s;
+}
+
+.createNewGroupButton:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.friendsDiv {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    color: #ffff;
+}
+
+.addFriendButton {
+    border-radius: 5px;
+    border: none;
+    color: #ffff;
+    padding: 10px 10px;
+    margin: 10px 2px;
+    width: 90%;
+    background-color: var(--background-color);
+    transition-duration: .5s;
+}
+
+.addFriendButton:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.friendsDiv span {
+    font-size: 25px;
+}
+
+.GroupSettingsDiv {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-purple);
+    color: #ffff;
+}
+
+.GroupSettingsDiv span {
+    font-size: 25px;
+}
+
+#spanOnPublic {
+    font-size: 15px;
+}
+
+.memberPfp {
+    border-radius: 50%;
+    width: 30px;
+    height: auto;
+    top: 50%;
+}
+
+.memberImgContainer {
+    display: inline-block;
+    margin: 2px 3px;
+}
+
+
+/* Group popup */
+
+.popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    animation: animatetop;
+    animation-duration: 0.4s;
+}
+
+
+/* Modal Content/Box */
+
+.popup-content {
+    background-color: var(--dark-background-color);
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    width: 70%;
+    /* Could be more or less, depending on screen size */
+    animation: animatetop;
+    animation-duration: 0.4s;
+    color: #ffff;
+}
+
+.popup-header {
+    padding: 2px 16px;
+    border-radius: 25px;
+    background: none;
+    color: white;
+}
+
+.popup-body {
+    margin: 0 25px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 2px 16px;
+}
+
+.popup-footer {
+    margin: 0 25px;
+    padding: 2px 16px;
+    padding-top: 25px;
+    border-radius: 25px;
+    background: none;
+    color: white;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.popup-footer h3 {
+    display: block;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #ffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition-duration: .2s;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--pink);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* Private Switch */
+
+
+/* The switch - the box around the slider */
+
+.switch {
+    position: relative;
+    display: block;
+    float: right;
+    width: 60px;
+    height: 34px;
+    margin-top: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+/* The slider */
+
+.sliderRound {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dark-purple);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.sliderRound:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ffff;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.checkboxInput:checked+.sliderRound {
+    background-color: var(--bright-purple);
+}
+
+.checkboxInput:focus+.sliderRound {
+    box-shadow: 0 0 1px var(--bright-purple);
+}
+
+.checkboxInput:checked+.sliderRound:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.sliderRound {
+    border-radius: 34px;
+}
+
+.sliderRound:before {
+    border-radius: 50%;
+}
+
+
+/* Settings */
+
+.settingLabel {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.popupSetting {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.popupInput {
+    display: block;
+    float: right;
+    margin-top: 15px;
+    height: 40px;
+    background-color: var(--dark-purple);
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: #ffff;
+    transition-duration: .5s;
+}
+
+.popupInput::placeholder {
+    color: #ffff;
+}
+
+.popupInput:focus {
+    background-color: var(--bright-purple)
+}
+
+.submitPopup {
+    display: block;
+    float: right;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    color: #ffff;
+    padding: 10px 10px;
+    width: 150px;
+    background-color: var(--dark-purple);
+    transition-duration: .5s;
+}
+
+.submitPopup:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+}
+
+.popupNote {
+    font-size: 17px;
+}
+
+.userListGroupSetting {
+    border-radius: 25px;
+    display: block;
+    background-color: var(--dark-purple);
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 16px 16px;
+}
+
+.addUserInput {
+    display: block;
+    height: 40px;
+    background-color: var(--background-color);
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: #ffff;
+    transition-duration: 0.5s;
+    margin-bottom: 7px;
+}
+
+.addUserInput::placeholder {
+    color: #ffff;
+}
+
+.addUserInput:focus {
+    background-color: var(--bright-purple)
+}
+
+.userListControlButton {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--background-color);
+    transition-duration: .2s;
+}
+
+.userListControlButton:hover {
+    cursor: pointer;
+    background-color: var(--bright-purple);
+}
+
+#userListControlButtonMinus {
+    margin-left: 5px;
+}
+
+.userProfile {
+    margin: 15px 0;
+}
+
+.profilePopupUsername {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    outline: none;
+    text-align: center;
+    width: auto;
+    font-size: 30px;
+    background: none;
+    border: none;
+    border-radius: 25px;
+    color: #ffff;
+    transition-duration: .2s;
+}
+
+.profilePopupUsername:hover {
+    background-color: #1a1a1a;
+}
+
+.profilePopupUsername::placeholder {
+    color: #ffff
+}
+
+.profilePopupPicture {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.profilePopupPicture:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.messageInfoWrap {
+    display: flex;
+    justify-content: left;
+    align-content: left;
+}
+
+.messageInfoText {
+    color: #ffff;
+    margin: 1px 0;
+    font-size: 17px;
+    transition-duration: .2s;
+}
+
+.messageUsernameTextOnly {
+    transition-duration: .2s;
+}
+
+.messageUsernameTextOnly:hover {
+    cursor: pointer;
+    color: var(--pink);
+}
+
+.homeDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.loginPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+}
+
+.loginForm {
+    background-color: var(--dark-background-color);
+    border-radius: 25px;
+    padding: 50px 25px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.loginTitle {
+    font-size: 50px;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.loginInputs {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid transparent;
+    background-color: var(--dark-purple);
+    color: #fff;
+    outline: none;
+    margin: 10px 0;
+    width: 350px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition-duration: .5s;
+}
+
+.loginInput {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+.inputIcon {
+    transition-duration: .5s;
+}
+
+.loginInput::placeholder {
+    color: #fff;
+}
+
+.loginButton {
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: var(--pink);
+    transition-duration: .5s;
+    color: #fff;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+.lowerForm {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginA {
+    color: #8a8a8a;
+    transition-duration: .5s;
+}
+
+.loginA:hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.createAccLoginLink {
+    color: #8a8a8a;
+}
+
+.placeholderActive::placeholder {
+    color: transparent;
+}
+
+.wave {
+    aspect-ratio: 960/100;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.homeTDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.top-wave {
+    background-image: url('./img/svg/top-wave.svg')
+}
+
+.homeMainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: calc(100vh - 100px - 3rem - 150px);
+    align-items: center;
+}
+
+.homeCenterContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.primaryHomeTitle {
+    font-size: 6rem;
+    color: #fff;
+    margin: -1rem;
+}
+
+.secondaryHomeTitle {
+    font-size: 10rem;
+    color: var(--pink);
+    margin: -1rem;
+}
+
+#spin:after {
+    content: "";
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        content: "PLACE"
+    }
+
+    25% {
+        content: "COMMUNITY"
+    }
+
+    50% {
+        content: "FRIENDS"
+    }
+
+    75% {
+        content: "GROUP"
+    }
+
+    100% {
+        content: "PLACE"
+    }
+}
+
+.homeLowerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.getStartedButton {
+    font-size: 1.5rem;
+    background-color: var(--dark-purple);
+    outline: none;
+    border: none;
+    color: #fff;
+    width: 15rem;
+    height: 6rem;
+    border-radius: 5rem;
+    margin: 0;
+    transition-duration: var(--transitionSpeed);
+}
+
+.getStartedButton:hover {
+    animation: buttonpulse .5s;
+    transform: scale(1.25);
+    cursor: pointer;
+    background-color: var(--bright-purple)
+}
+
+@keyframes buttonpulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--bright-purple);
+    }
+
+    100% {
+        box-shadow: 0 0 0 50px var(--background-color);
+    }
+}
+
+.homeNavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    padding-bottom: .5rem;
+    background-color: var(--pink);
+}
+
+.homeNavLink {
+    font-size: 2rem;
+    color: var(--dark-purple);
+    transition-duration: var(--transitionSpeed);
+    text-decoration: none;
+}
+
+.homeNavLink:hover {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+}
