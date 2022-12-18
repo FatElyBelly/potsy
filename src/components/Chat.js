@@ -654,7 +654,7 @@ class Chat extends Component {
           </button>
           <center>
             <div className={(this.state.currentMessage.uid === auth.currentUser.uid) ? 'myMessageDiv messageInfo' : 'messageDiv messageInfo'} id={(this.state.currentMessage.uid === "eKxKl6uQESeOeXvcM9LVp4IG0ta2") ? 'modMessage' : ''}>
-              <img src={this.state.currentMessage.photoURL} alt="Failed to load" />
+              <img src={dummypfp} alt="Failed to load" />
               <p className="messageText">{this.state.currentMessage.text}</p>
             </div>
           </center>
@@ -677,7 +677,7 @@ class Chat extends Component {
                     this.getMessageInfo(messageid)
                     this.setRightSideNav(true)
                   }}>
-                    <img src={photoURL} alt="Failed to load" />
+                    <img src={dummypfp} alt="Failed to load" />
                     <p className="messageText">{text}</p>
                   </div>
                 </div>
