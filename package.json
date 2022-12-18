@@ -1,5 +1,5 @@
 {
-  "name": "react-task-tracker",
+  "name": "chally",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.4.0"
   }
 }
