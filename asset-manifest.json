@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/chally/static/css/main.2643c1f6.css",
+    "main.js": "/chally/static/js/main.6a8024a9.js",
+    "static/media/top-wave.svg": "/chally/static/media/top-wave.608e3b7fffa90d984b53.svg",
+    "index.html": "/chally/index.html",
+    "main.2643c1f6.css.map": "/chally/static/css/main.2643c1f6.css.map",
+    "main.6a8024a9.js.map": "/chally/static/js/main.6a8024a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2643c1f6.css",
+    "static/js/main.6a8024a9.js"
+  ]
+}
